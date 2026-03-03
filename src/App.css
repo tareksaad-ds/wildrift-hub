@@ -134,6 +134,28 @@
   flex-shrink: 0;
 }
 
+/* ── Favorite Champions ──────────────────────────────── */
+.champions {
+  width: 100%;
+  max-width: 720px;
+  padding: 0 2rem 3rem;
+  text-align: center;
+}
+
+.champions h2 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+}
+
+.champions-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+
 /* ── Contact form ────────────────────────────────────── */
 .contact {
   width: 100%;

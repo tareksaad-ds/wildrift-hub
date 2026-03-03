@@ -1,12 +1,12 @@
-# Tekoo Hub
+# Tikoo Hub
 
-A landing page for **Tekoo Hub** — a League of Legends Challenger mid lane player offering personal coaching sessions. Visitors can submit their email to get contacted by Tekoo directly.
+A landing page for **Tikoo Hub** — a League of Legends Challenger mid lane player offering personal coaching sessions. Visitors can submit their email to get contacted by Tikoo directly.
 
 ---
 
 ## Features
 
-- Hero section introducing Tekoo Hub and his coaching offer
+- Hero section introducing Tikoo Hub and his coaching offer
 - Stats bar highlighting rank, role, and coaching experience
 - "What You'll Learn" section covering key mid lane topics
 - Email sign-up form with client-side validation and a success confirmation state

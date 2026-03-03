@@ -1,21 +1,32 @@
-import { useState } from 'react'
-import './App.css'
+import { useState } from "react";
+import "./App.css";
+import ChampionCard from "./ChampionCard";
 
-/** Root landing page for Tekoo Hub coaching service. */
+const CHAMPIONS = [
+  { name: "Zyra",      type: "Mage",    imageUrl: "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Zyra_0.jpg"      },
+  { name: "Yone",      type: "Fighter", imageUrl: "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Yone_0.jpg"      },
+  { name: "Akshan",    type: "Fighter", imageUrl: "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Akshan_0.jpg"    },
+  { name: "Akali",     type: "Fighter", imageUrl: "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Akali_0.jpg"     },
+  { name: "Lissandra", type: "Mage",    imageUrl: "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Lissandra_0.jpg" },
+  { name: "Fizz",      type: "Fighter", imageUrl: "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Fizz_0.jpg"      },
+  { name: "Ekko",      type: "Fighter", imageUrl: "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Ekko_0.jpg"      },
+] as const;
+
+/** Root landing page for Tikoo Hub coaching service. */
 export default function App() {
-  const [email, setEmail] = useState('')
-  const [submitted, setSubmitted] = useState(false)
-  const [error, setError] = useState('')
+  const [email, setEmail] = useState("");
+  const [submitted, setSubmitted] = useState(false);
+  const [error, setError] = useState("");
 
   /** Validates the email and marks the form as submitted. */
   function handleSubmit(e: React.FormEvent) {
-    e.preventDefault()
-    if (!email.includes('@') || !email.includes('.')) {
-      setError('Please enter a valid email address.')
-      return
+    e.preventDefault();
+    if (!email.includes("@") || !email.includes(".")) {
+      setError("Please enter a valid email address.");
+      return;
     }
-    setError('')
-    setSubmitted(true)
+    setError("");
+    setSubmitted(true);
   }
 
   return (
@@ -23,11 +34,11 @@ export default function App() {
       <header className="hero">
         <div className="hero-badge">Mid Lane Coaching</div>
         <h1 className="hero-title">
-          Tekoo <span className="accent">Hub</span>
+          Tikoo <span className="accent">Hub</span>
         </h1>
         <p className="hero-subtitle">
           Top-tier Mid Lane player ready to take your game to the next level.
-          Whether you're climbing ranked or perfecting your mechanics, Tekoo has
+          Whether you're climbing ranked or perfecting your mechanics, Tikoo has
           you covered.
         </p>
       </header>
@@ -58,14 +69,30 @@ export default function App() {
         </ul>
       </section>
 
+      <section className="champions">
+        <h2>Favorite Champions</h2>
+        <div className="champions-grid">
+          {CHAMPIONS.map((champ) => (
+            <ChampionCard
+              key={champ.name}
+              name={champ.name}
+              type={champ.type}
+              imageUrl={champ.imageUrl}
+            />
+          ))}
+        </div>
+      </section>
+
       <section className="contact">
-        <h2>Get Coached by Tekoo</h2>
-        <p>Drop your email and Tekoo will reach out to set up your first session.</p>
+        <h2>Get Coached by Tikoo</h2>
+        <p>
+          Drop your email and Tikoo will reach out to set up your first session.
+        </p>
 
         {submitted ? (
           <div className="success">
             <span className="success-icon">✓</span>
-            <p>You're on the list! Tekoo will contact you soon.</p>
+            <p>You're on the list! Tikoo will contact you soon.</p>
           </div>
         ) : (
           <form className="email-form" onSubmit={handleSubmit} noValidate>
@@ -87,8 +114,10 @@ export default function App() {
       </section>
 
       <footer className="footer">
-        <p>© {new Date().getFullYear()} Tekoo Hub · League of Legends Coaching</p>
+        <p>
+          © {new Date().getFullYear()} Tikoo Hub · League of Legends Coaching
+        </p>
       </footer>
     </div>
-  )
+  );
 }
